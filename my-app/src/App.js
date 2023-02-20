@@ -1,21 +1,14 @@
-import { useState } from "react";
-
-export default function MyApp() {
-  const [count, setCount] = useState(0);
-
-  function handleClick() {
-    setCount(count + 1);
-  }
-
+export default function Toolbar() {
   return (
-    <div>
-      <h1>Counters that update separately</h1>
-      <MyButton count={count} onClick={handleClick} />
-      <MyButton count={count} onClick={handleClick} />
-    </div>
+    <>
+      <AlertButton message="Catch me if you can"></AlertButton>
+    </>
   );
 }
 
-function MyButton({ count, onClick }) {
-  return <button onClick={onClick}>Clicked {count} times</button>;
+function AlertButton({ message }) {
+  function handleClick() {
+    alert(message);
+  }
+  return <button onClick={handleClick}>Play {message}</button>;
 }
